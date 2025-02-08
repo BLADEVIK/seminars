@@ -1,7 +1,7 @@
- **Нужно установить:
-   vite
-   npm i
-  json-server --watch seminars.json --port 3000
+ **Нужно установить**:
+   *vite
+   *npm i
+  *json-server --watch seminars.json --port 3000
  Развернуть локально `json-server` и загрузить в него данные **seminars**. 
 1. **Запрос данных**
 

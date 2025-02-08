@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import SeminarItem from "./SeminarItem";
-
+// Список семинаров
 const SeminarList = ({ seminars, deleteSeminar, handleEditClick }) => {
   return (
     <ul>

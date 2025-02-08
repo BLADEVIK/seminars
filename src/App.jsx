@@ -7,7 +7,7 @@ import {
   deleteSeminar as apiDeleteSeminar,
   updateSeminar as apiUpdateSeminar,
 } from "./api/seminarApi";
-
+// Главный компонент
 function App() {
   const [seminars, setSeminars] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ function App() {
   const [editLocation, setEditLocation] = useState("");
   const [currentSeminarId, setCurrentSeminarId] = useState(null);
   const [editTime, setEditTime] = useState("");
-
+  // Загрузка семинаров
   useEffect(() => {
     // Запрос данных с семинарами из json-server
     fetchSeminars()
@@ -28,7 +28,7 @@ function App() {
       })
       .catch((error) => console.error("Ошибка при загрузке семинаров:", error));
   }, []);
-
+  // Удаление семинара
   const deleteSeminar = (id) => {
     if (window.confirm("Вы уверены, что хотите удалить семинар?")) {
       apiDeleteSeminar(id)
@@ -38,7 +38,7 @@ function App() {
         .catch((error) => console.error("Ошибка:", error));
     }
   };
-
+  // Редактирование семинара
   const handleEditClick = (seminar) => {
     setCurrentSeminarId(seminar.id);
     setEditTitle(seminar.title);
@@ -48,7 +48,7 @@ function App() {
     setEditTime(seminar.time);
     setModalOpen(true);
   };
-
+  // Закрытие модального окна
   const handleCloseModal = () => {
     setModalOpen(false);
     setEditTitle("");
@@ -58,6 +58,7 @@ function App() {
     setCurrentSeminarId(null);
   };
 
+  // Сохранение семинара
   const handleSave = () => {
     apiUpdateSeminar(currentSeminarId, {
       title: editTitle,
@@ -85,7 +86,7 @@ function App() {
       })
       .catch((error) => console.error("Ошибка при сохранении:", error));
   };
-
+  // Рендеринг главной страницы
   return (
     <div className="container">
       <h1>Семинары</h1>

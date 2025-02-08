@@ -1,5 +1,5 @@
 const API_URL = "http://localhost:3000/seminars";
-
+// Получение списка семинаров
 export const fetchSeminars = async () => {
   const response = await fetch(API_URL);
   if (!response.ok) {
@@ -8,6 +8,7 @@ export const fetchSeminars = async () => {
   return response.json();
 };
 
+// Удаление семинара
 export const deleteSeminar = async (id) => {
   const response = await fetch(`${API_URL}/${id}`, {
     method: "DELETE",
@@ -17,6 +18,7 @@ export const deleteSeminar = async (id) => {
   }
 };
 
+// Обновление семинара
 export const updateSeminar = async (id, seminarData) => {
   const response = await fetch(`${API_URL}/${id}`, {
     method: "PUT",

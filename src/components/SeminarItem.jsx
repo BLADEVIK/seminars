@@ -1,16 +1,15 @@
-// import React from "react"; // Unused import
+import PropTypes from "prop-types";
 
-import PropTypes from "prop-types"; // Add PropTypes import
-
+// Семинар
 const SeminarItem = ({ seminar, deleteSeminar, handleEditClick }) => {
   return (
     <li>
       <div>
         <h2>{seminar.title}</h2>
-        <p>Описание : {seminar.description}</p>
-        <p>Дата : {seminar.date}</p>
-        <p>Местоположение : {seminar.location}</p>
-        <p>Время : {seminar.time}</p>
+        {seminar.description && <p>Описание : {seminar.description}</p>}
+        {seminar.date && <p>Дата : {seminar.date}</p>}
+        {seminar.location && <p>Местоположение : {seminar.location}</p>}
+        {seminar.time && <p>Время : {seminar.time}</p>}
       </div>
       <div className="button-container">
         <button className="delete" onClick={() => deleteSeminar(seminar.id)}>
@@ -22,7 +21,6 @@ const SeminarItem = ({ seminar, deleteSeminar, handleEditClick }) => {
   );
 };
 
-// Add prop types validation
 SeminarItem.propTypes = {
   seminar: PropTypes.shape({
     id: PropTypes.number.isRequired,

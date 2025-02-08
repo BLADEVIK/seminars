@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+// Редактирование семинара
 const EditModal = ({
   isModalOpen,
   handleCloseModal,

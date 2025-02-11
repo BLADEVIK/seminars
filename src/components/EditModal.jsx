@@ -22,7 +22,7 @@ const EditModal = ({
           <span className="close" onClick={handleCloseModal}>
             &times;
           </span>
-          <h2>Редактирование</h2>
+          <h2 className="title">Редактирование</h2>
           <input
             type="text"
             value={editTitle}
@@ -46,6 +46,7 @@ const EditModal = ({
             placeholder="Местоположение"
           />
           <input
+          className="inputTime"
             type="time"
             value={editTime}
             onChange={(e) => setEditTime(e.target.value)}

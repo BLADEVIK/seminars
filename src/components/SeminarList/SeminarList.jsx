@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
-import SeminarItem from "./SeminarItem";
+import SeminarItem from "../SeminarItem/SeminarItem";
+import { SeminarListContainer } from "../SeminarList/SeminarList.styled";
+
+
+
 // Список семинаров
 const SeminarList = ({ seminars, deleteSeminar, handleEditClick }) => {
   return (
-    <ul>
+    <SeminarListContainer>
       {seminars.map((seminar) => (
         <SeminarItem
           key={seminar.id}
@@ -12,7 +16,7 @@ const SeminarList = ({ seminars, deleteSeminar, handleEditClick }) => {
           handleEditClick={handleEditClick}
         />
       ))}
-    </ul>
+    </SeminarListContainer>
   );
 };
 

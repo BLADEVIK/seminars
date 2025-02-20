@@ -1,4 +1,14 @@
 import PropTypes from "prop-types";
+import {
+  ButtonContainer,
+  CloseButton,
+  Input,
+  ModalContent,
+  ModalOverlay,
+  SaveButton,
+  TextArea,
+  Title,
+} from "./EditModal.styled";
 // Редактирование семинара
 const EditModal = ({
   isModalOpen,
@@ -17,47 +27,42 @@ const EditModal = ({
 }) => {
   return (
     isModalOpen && (
-      <div className="modal">
-        <div className="modal-content">
-          <span className="close" onClick={handleCloseModal}>
-            &times;
-          </span>
-          <h2 className="title">Редактирование</h2>
-          <input
+      <ModalOverlay>
+        <ModalContent>
+          <CloseButton onClick={handleCloseModal}>&times;</CloseButton>
+          <Title>Редактирование семинара</Title>
+          <Input
             type="text"
             value={editTitle}
             onChange={(e) => setEditTitle(e.target.value)}
             placeholder="Заголовок"
           />
-          <textarea
+          <TextArea
             value={editDescription}
             onChange={(e) => setEditDescription(e.target.value)}
             placeholder="Описание"
           />
-          <input
+          <Input
             type="date"
             value={editDate}
             onChange={(e) => setEditDate(e.target.value)}
           />
-          <input
+          <Input
             type="text"
             value={editLocation}
             onChange={(e) => setEditLocation(e.target.value)}
             placeholder="Местоположение"
           />
-          <input
-          className="inputTime"
+          <Input
             type="time"
             value={editTime}
             onChange={(e) => setEditTime(e.target.value)}
           />
-          <div className="button-container">
-            <button className="btn-save" onClick={handleSave}>
-              Сохранить
-            </button>
-          </div>
-        </div>
-      </div>
+          <ButtonContainer>
+            <SaveButton onClick={handleSave}>Сохранить</SaveButton>
+          </ButtonContainer>
+        </ModalContent>
+      </ModalOverlay>
     )
   );
 };

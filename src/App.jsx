@@ -1,12 +1,14 @@
-import "./App.css";
 import { useEffect, useState } from "react";
-import SeminarList from "./components/SeminarList";
-import EditModal from "./components/EditModal";
+import SeminarList from "./components/SeminarList/SeminarList";
+import EditModal from "./components/EditModal/EditModal";
 import {
   fetchSeminars,
   deleteSeminar as apiDeleteSeminar,
   updateSeminar as apiUpdateSeminar,
 } from "./api/seminarApi";
+import { AppContainer, LoadingText, Title } from "./App.styled";
+
+
 // Главный компонент
 function App() {
   const [seminars, setSeminars] = useState([]);
@@ -88,10 +90,10 @@ function App() {
   };
   // Рендеринг главной страницы
   return (
-    <div className="container">
-      <h1>Семинары</h1>
+    <AppContainer>
+      <Title>Семинары</Title>
       {loading ? (
-        <p>Загрузка...</p>
+        <LoadingText>Загрузка...</LoadingText>
       ) : (
         <SeminarList
           seminars={seminars}
@@ -114,7 +116,7 @@ function App() {
         editTime={editTime}
         setEditTime={setEditTime}
       />
-    </div>
+    </AppContainer>
   );
 }
 

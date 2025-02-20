@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import styles from "./SeminarItem.module.css";
 
 // Семинар
 const SeminarItem = ({ seminar, deleteSeminar, handleEditClick }) => {
   return (
-    <li>
+    <li className={styles.seminarItem}>
       <div>
         <h2>{seminar.title}</h2>
         {seminar.description && <p>Описание : {seminar.description}</p>}
@@ -11,11 +12,19 @@ const SeminarItem = ({ seminar, deleteSeminar, handleEditClick }) => {
         {seminar.location && <p>Местоположение : {seminar.location}</p>}
         {seminar.time && <p>Время : {seminar.time}</p>}
       </div>
-      <div className="button-container">
-        <button className="delete" onClick={() => deleteSeminar(seminar.id)}>
+      <div className={styles.buttonContainer}>
+        <button
+          className={styles.deleteButton}
+          onClick={() => deleteSeminar(seminar.id)}
+        >
           Удалить
         </button>
-        <button onClick={() => handleEditClick(seminar)}>Редактировать</button>
+        <button
+          className={styles.editButton}
+          onClick={() => handleEditClick(seminar)}
+        >
+          Редактировать
+        </button>
       </div>
     </li>
   );

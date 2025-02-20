@@ -1,7 +1,7 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { useEffect, useState } from "react";
-import SeminarList from "./components/SeminarList";
-import EditModal from "./components/EditModal";
+import SeminarList from "./components/SeminarList/SeminarList";
+import EditModal from "./components/EditModal/EditModal";
 import {
   fetchSeminars,
   deleteSeminar as apiDeleteSeminar,
@@ -88,8 +88,8 @@ function App() {
   };
   // Рендеринг главной страницы
   return (
-    <div className="container">
-      <h1>Семинары</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Семинары</h1>
       {loading ? (
         <p>Загрузка...</p>
       ) : (

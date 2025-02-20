@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import styles from "./EditModal.module.css";
 // Редактирование семинара
 const EditModal = ({
   isModalOpen,
@@ -17,42 +18,46 @@ const EditModal = ({
 }) => {
   return (
     isModalOpen && (
-      <div className="modal">
-        <div className="modal-content">
-          <span className="close" onClick={handleCloseModal}>
+      <div className={styles.modal}>
+        <div className={styles.modalContent}>
+          <span className={styles.close} onClick={handleCloseModal}>
             &times;
           </span>
-          <h2 className="title">Редактирование</h2>
+          <h2 className={styles.title}>Редактирование</h2>
           <input
             type="text"
             value={editTitle}
             onChange={(e) => setEditTitle(e.target.value)}
             placeholder="Заголовок"
+            className={styles.input}
           />
           <textarea
             value={editDescription}
             onChange={(e) => setEditDescription(e.target.value)}
             placeholder="Описание"
+            className={styles.input}
           />
           <input
             type="date"
             value={editDate}
             onChange={(e) => setEditDate(e.target.value)}
+            className={styles.input}
           />
           <input
             type="text"
             value={editLocation}
             onChange={(e) => setEditLocation(e.target.value)}
             placeholder="Местоположение"
+            className={styles.input}
           />
           <input
-          className="inputTime"
             type="time"
             value={editTime}
             onChange={(e) => setEditTime(e.target.value)}
+            className={styles.input}
           />
-          <div className="button-container">
-            <button className="btn-save" onClick={handleSave}>
+          <div className={styles.buttonContainer}>
+            <button className={styles.saveButton} onClick={handleSave}>
               Сохранить
             </button>
           </div>
